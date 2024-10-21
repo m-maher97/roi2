@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing ROI Calculator</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="container">
+    <img src="https://d2pi0n2fm836iz.cloudfront.net/595260/10212024112225671639717f5b5.svg" alt="">
+    <h1>Marketing ROI Calculator</h1>
+
+    <!-- Form Fields in Two Columns -->
+    <div class="form-group">
+      <!-- Industry Selection -->
+      <div class="input-field">
+        <label for="industry">Your Industry:</label>
+        <select id="industry">
+          <option value="technology">Technology</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="education">Education</option>
+          <option value="finance">Finance</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <!-- Region Selection -->
+      <div class="input-field">
+        <label for="region">Your Region:</label>
+        <select id="region">
+          <option value="northern_americas">Northern Americas</option>
+          <option value="europe">Europe</option>
+          <option value="asia">Asia</option>
+          <option value="middle_east">Middle East</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <!-- Currency Selection -->
+      <div class="input-field">
+        <label for="currency">Your Currency:</label>
+        <select id="currency">
+          <option value="usd">USD</option>
+          <option value="eur">EUR</option>
+          <option value="gbp">GBP</option>
+        </select>
+      </div>
+
+      <!-- Website Visitors -->
+      <div class="input-field">
+        <label for="visitors">Website Visitors (monthly):</label>
+        <input type="number" id="visitors" placeholder="Enter number of visitors" />
+      </div>
+
+      <!-- Deals Created -->
+      <div class="input-field">
+        <label for="deals">Deals Created (monthly):</label>
+        <input type="number" id="deals" placeholder="Enter number of deals created" />
+      </div>
+
+      <!-- Marketing Leads -->
+      <div class="input-field">
+        <label for="leads">Marketing Leads (monthly):</label>
+        <input type="number" id="leads" placeholder="Enter number of leads" />
+      </div>
+
+      <!-- Lead to Deal Conversion Rate -->
+      <div class="input-field">
+        <label for="conversionRate">Marketing Lead to Deal Closed Rate (%):</label>
+        <input type="number" id="conversionRate" placeholder="Enter conversion rate" />
+      </div>
+
+      <!-- Average Deal Size -->
+      <div class="input-field">
+        <label for="dealSize">Deal Size Amount (average):</label>
+        <input type="number" id="dealSize" placeholder="Enter average deal size" />
+      </div>
+    </div>
+
+    <!-- Button Group (Calculate and Reset) -->
+    <div class="button-group">
+      <button onclick="calculateMarketingROI()">Calculate ROI</button>
+      <button class="reset" onclick="resetCalculator()">Reset</button>
+    </div>
+
+    <!-- Result Output -->
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateMarketingROI() {
+      // Get user inputs
+      const visitors = parseFloat(document.getElementById('visitors').value);
+      const deals = parseFloat(document.getElementById('deals').value);
+      const leads = parseFloat(document.getElementById('leads').value);
+      const conversionRate = parseFloat(document.getElementById('conversionRate').value);
+      const dealSize = parseFloat(document.getElementById('dealSize').value);
+      
+      // Validate inputs
+      if (isNaN(visitors) || isNaN(deals) || isNaN(leads) || isNaN(conversionRate) || isNaN(dealSize)) {
+        alert('Please enter valid numbers for all fields.');
+        return;
+      }
+
+      // Calculate marketing ROI
+      const convertedLeads = leads * (conversionRate / 100);  // Leads that convert into deals
+      const expectedRevenue = convertedLeads * dealSize;  // Total revenue
+      const profit = expectedRevenue - (leads + visitors);  // Example of profit (you can add more expenses)
+      const roi = (profit / (leads + visitors)) * 100;
+
+      // Display result
+      document.getElementById('result').innerHTML = `
+        <p><strong>Expected Revenue:</strong> $${expectedRevenue.toFixed(2)}</p>
+        <p><strong>Profit:</strong> $${profit.toFixed(2)}</p>
+        <p><strong>ROI:</strong> ${roi.toFixed(2)}%</p>
+      `;
+    }
+
+    function resetCalculator() {
+      // Clear all input fields
+      document.getElementById('industry').selectedIndex = 0;
+      document.getElementById('region').selectedIndex = 0;
+      document.getElementById('currency').selectedIndex = 0;
+      document.getElementById('visitors').value = '';
+      document.getElementById('deals').value = '';
+      document.getElementById('leads').value = '';
+      document.getElementById('conversionRate').value = '';
+      document.getElementById('dealSize').value = '';
+
+      // Clear result section
+      document.getElementById('result').innerHTML = '';
+    }
+  </script>
+</body>
+</html>
