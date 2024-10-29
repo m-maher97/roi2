@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Cairo", sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
@@ -53,28 +53,34 @@ justify-content: space-between;
 margin-top: 15px;
 }
 
+
 button {
 display: inline-block;
 padding: 10px 15px;
-background-color: #28a745;
+background-color: #008060;
 color: white;
 border: none;
 border-radius: 5px;
 cursor: pointer;
 width: 45%; /* Increase button width */
 margin: 0 5px; /* Add a gap between buttons */
+border-radius: 20px;
 }
 
 button:hover {
-background-color: #218838;
+background-color: #005A40;
 }
 
 .reset {
-background-color: #dc3545;
+background-color: #FFFFFF;
+color:#008060 ;
+border-radius: 20px;
+border: solid #008060 1px;
 }
 
 .reset:hover {
-background-color: #c82333;
+background-color: #008060;
+color: #fff;
 }
 
   .result {
