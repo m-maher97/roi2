@@ -5,49 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marketing ROI Calculator</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
   <div class="container">
     <img src="https://d2pi0n2fm836iz.cloudfront.net/595260/10212024112225671639717f5b5.svg" alt="">
     <h1>Marketing ROI Calculator</h1>
 
-    <!-- Form Fields in Two Columns -->
+    <!-- Form Fields -->
     <div class="form-group">
-      <!-- Industry Selection -->
-      <div class="input-field">
-        <label for="industry">Your Industry:</label>
-        <select id="industry">
-          <option value="technology">Technology</option>
-          <option value="healthcare">Healthcare</option>
-          <option value="education">Education</option>
-          <option value="finance">Finance</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      <!-- Region Selection -->
-      <div class="input-field">
-        <label for="region">Your Region:</label>
-        <select id="region">
-          <option value="northern_americas">Northern Americas</option>
-          <option value="europe">Europe</option>
-          <option value="asia">Asia</option>
-          <option value="middle_east">Middle East</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      <!-- Currency Selection -->
-      <div class="input-field">
-        <label for="currency">Your Currency:</label>
-        <select id="currency">
-          <option value="usd">USD</option>
-          <option value="eur">EUR</option>
-          <option value="gbp">GBP</option>
-        </select>
-      </div>
-
       <!-- Website Visitors -->
       <div class="input-field">
         <label for="visitors">Website Visitors (monthly):</label>
@@ -120,9 +85,6 @@
 
     function resetCalculator() {
       // Clear all input fields
-      document.getElementById('industry').selectedIndex = 0;
-      document.getElementById('region').selectedIndex = 0;
-      document.getElementById('currency').selectedIndex = 0;
       document.getElementById('visitors').value = '';
       document.getElementById('deals').value = '';
       document.getElementById('leads').value = '';
